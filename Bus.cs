@@ -4,7 +4,14 @@ using System.Text;
 
 namespace Garage1._0
 {
-    class Bus:Vehicle
+    /// <summary>
+    /// A subclass of Vehicle for Bus
+    /// </summary>
+    class Bus : Vehicle
     {
+        private int seats;
+
+        public int Seats { get => seats; set => seats = value; }
+
     }
 }

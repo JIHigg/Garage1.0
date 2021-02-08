@@ -4,7 +4,12 @@ using System.Text;
 
 namespace Garage1._0
 {
-    class Garage
+    class Garage<T>
     {
+        public Garage()
+        {
+
+        }
+
     }
 }

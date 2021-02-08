@@ -4,7 +4,13 @@ using System.Text;
 
 namespace Garage1._0
 {
-    class Boat:Vehicle
+    /// <summary>
+    /// A subclass of Vehicles for Boats.
+    /// </summary>
+    class Boat : Vehicle
     {
+        private string typeOfBoat;
+
+        public string TypeOfBoat { get => typeOfBoat; set => typeOfBoat = value; }
     }
 }
