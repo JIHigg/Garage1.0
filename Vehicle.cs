@@ -7,7 +7,7 @@ namespace Garage1._0
     /// <summary>
     /// Class for all Vehicles
     /// </summary>
-    class Vehicle
+    public class Vehicle
     {
         private int year;
         private string registrationNum;
@@ -16,7 +16,11 @@ namespace Garage1._0
         private string color;
 
         public int Year { get => year; set => year = value; }
-        public string RegistrationNum { get => registrationNum; set => registrationNum = value; }//Fix so numbers cannot repeat.
+        public string RegistrationNum { get => registrationNum; set => registrationNum= value; }
+
+
+
+
         public string Model { get => model; set => model = value; }
         public int NumOfWheels { get => numOfWheels; set => numOfWheels = value; }
         public string Color { get => color; set => color = value; }

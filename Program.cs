@@ -6,7 +6,9 @@ namespace Garage1._0
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var manager = new Manager();
+
+            manager.Start();//Opens the User Menu
         }
     }
 }

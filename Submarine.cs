@@ -12,5 +12,11 @@ namespace Garage1._0
         private double maxDepth;
 
         public double MaxDepth { get => maxDepth; set => maxDepth = value; }
+
+        public Submarine(double maxDepth):base(2010, "sub123", "Ohio", 0, "Black")
+        {
+            MaxDepth = maxDepth;
+           
+        }
     }
 }

@@ -6,10 +6,12 @@ namespace Garage1._0
 {
     class Garage<T>
     {
-        public Garage()
+        
+        public Garage(int size)
         {
-
+            var garage1 = new Array[size];
+           
         }
-
+        public Garage() { }
     }
 }
