@@ -7,7 +7,7 @@ namespace Garage1._0
     /// <summary>
     /// A subclass of Vehicles for Cars.
     /// </summary>
-    class Car : Vehicle
+    public class Car : Vehicle
     {
         private double milesPerGallon;
         private int seatingCapacity;
@@ -15,5 +15,11 @@ namespace Garage1._0
         public double MilesPerGallon { get => milesPerGallon; set => milesPerGallon = value; }
         public int SeatingCapacity { get => seatingCapacity; set => seatingCapacity = value; }
 
+        public Car(double milesPerGallon, int seatingCapacity):base()
+        {
+            BasicVehicle("Car");
+            MilesPerGallon = milesPerGallon;
+            SeatingCapacity = seatingCapacity;
+        }
     }
 }

@@ -6,14 +6,15 @@ namespace Garage1._0
 {
     internal interface IUI
     {
-        void NewGarage(int size);
-        void EmptyGarage();
-        void AddVehicle(Vehicle vehicle);
+        void NewGarage();
+        void CreateGarage();
+        void AddVehicle();
+        void RemoveVehicle();
         void FindVehicle();
         void ListVehicle();
         public void DisplayVehicleByType();
 
         public void DisplayVehicleOneType();
-        
+        void VehicleSearch();
     }
 }

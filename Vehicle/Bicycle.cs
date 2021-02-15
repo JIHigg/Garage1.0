@@ -7,13 +7,14 @@ namespace Garage1._0
     /// <summary>
     /// A subclass of Vehicle for Bicycles.
     /// </summary>
-    class Bicycle : Vehicle
+    public class Bicycle : Vehicle
     {
         private int topSpeed;
         private int wheelSize;
 
-        public Bicycle(int topSpeed, int wheelSize, string model, string color):base(1990, "abcd", model, 2, color)
+        public Bicycle(int topSpeed, int wheelSize, string model, string color):base()
         {
+            BasicVehicle("Bicycle");
             TopSpeed = topSpeed;
             WheelSize = wheelSize;
             Model = model;
