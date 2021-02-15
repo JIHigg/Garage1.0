@@ -17,24 +17,14 @@ namespace Garage1._0
         private string model;
         private int numOfWheels;
         private string color;
-        private string name;
-        private static Random random = new Random();
-        public  string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456790";
+        private string name;               
         public List<String> RegNumbers = new List<string>();
 
         public int Year { get => year; set => year = value; }
 
-        public string RegistrationNum
-        {
-            get => registrationNum; set => registrationNum= value;
-            
-        }
+        public string RegistrationNum { get => registrationNum; set => registrationNum= value;}
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public string Name { get => name; set => name = value; }
 
         public string Model { get => model; set => model = value; }
         public int NumOfWheels { get => numOfWheels; set => numOfWheels = value; }
@@ -69,16 +59,7 @@ namespace Garage1._0
             if (other == null) return 1;
             return Name.CompareTo(other.Name);
         }
-        public static string GenerateRegNum(int size, string alphabet)
-        {    
-            
-            char[] regNum = new char[size];
-            for(int i=0; i <size; i++)
-            {
-                regNum[i] = alphabet[random.Next(alphabet.Length)];
-            }
-            return new string(regNum);
-        }
+        
 
         public Vehicle()
         { }

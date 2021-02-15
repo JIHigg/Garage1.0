@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Garage1._0
 {
-    public class GarageHandler : Garage<Vehicle>
+    /// <summary>
+    /// Creates and modifies Garage objects.
+    /// </summary>
+    public class GarageHandler : Garage<Vehicle>, IGarageHandler
     {
         private Dictionary<char, string> vehicleList = new Dictionary<char, string>()
         {
@@ -18,18 +21,25 @@ namespace Garage1._0
         };
         public int total = 0;
 
+        /// <summary>
+        /// User prompt to Create New Garage
+        /// </summary>
         public void NewGarage()
         {
-            Console.WriteLine("Let's create a new Garage!" 
+            Console.WriteLine("Let's create a new Garage!"
                             + "\nHow many vehicles would you like to fit inside it:");
             int.TryParse(Console.ReadLine(), out int size);
             Garage<Vehicle> G1 = new Garage<Vehicle>(size);
-            
+
         }
         public GarageHandler()
         {
         }
-        public void AddNewVehicle() 
+
+        /// <summary>
+        /// Add new Vehicle to Garage
+        /// </summary>
+        public void AddNewVehicle()
         {
             bool open = true;
 
@@ -91,7 +101,7 @@ namespace Garage1._0
 
             List<Vehicle> Results = new List<Vehicle>();
 
-            foreach(Vehicle vehicle in G)
+            foreach (Vehicle vehicle in GarageArray)
             {
                 if (vehicle.RegistrationNum.ToLower() == vRegNum.ToLower())//Rewrite to LINQ?
                     Results.Add(vehicle);
@@ -101,10 +111,10 @@ namespace Garage1._0
             {
                 Console.Clear();
                 Console.WriteLine("Here are the vehicle(s) that match your search:" +
-                                "\n---------" );
-                foreach(var item in Results)
-                    Console.WriteLine($"Vehicle: {item.Name}"+
-                                      $"\nModel: {item.Model}"+
+                                "\n---------");
+                foreach (var item in Results)
+                    Console.WriteLine($"Vehicle: {item.Name}" +
+                                      $"\nModel: {item.Model}" +
                                       $"\nRegistration Number: {item.RegistrationNum}");
             }
             else
@@ -117,7 +127,7 @@ namespace Garage1._0
         /// <summary>
         /// Allows user to search Vehicles by any property
         /// </summary>
-        public void VehicleTraitSearch()//Search by any Vehicle Prop
+        public void VehicleTraitSearch()//Search by any Vehicle Prop //TODO Fix Repetitive Code
         {
             Dictionary<string, string> vAttributes = new Dictionary<string, string>();
 
@@ -128,7 +138,7 @@ namespace Garage1._0
             //Verify and add input
             bool empty = String.IsNullOrEmpty(vType);
             if (!empty)
-                vAttributes.Add("Name", vType.ToLower());            
+                vAttributes.Add("Name", vType.ToLower());
 
             Console.WriteLine("Please enter the year of the vehicle [Leave blank if unknown]:");
             string vYear = Console.ReadLine();
@@ -150,7 +160,7 @@ namespace Garage1._0
             string vWheel = Console.ReadLine();
 
             empty = String.IsNullOrEmpty(vWheel);
-            if(!empty)
+            if (!empty)
                 vAttributes.Add("NumOfWheels", vWheel);
 
             Console.WriteLine("Please enter the color of the vehicle [Enter '0' if unknown]: ");
@@ -160,7 +170,17 @@ namespace Garage1._0
             if (!empty)
                 vAttributes.Add("Color", vColor);
 
+            //Results of search
             List<Vehicle> Results = CompareVehicles(vAttributes);
+            Console.Clear();
+            Console.WriteLine("Here are the vehicles that match your search criteria:" 
+                            + "\n--------------------------------");
+
+            foreach(Vehicle vehicle in Results)
+            {
+                Console.WriteLine(vehicle.ToString());
+            }
+            Console.WriteLine("---------------------------------");
         }
         /// <summary>
         /// Compares user input properties to vehicles in Garage
@@ -171,11 +191,11 @@ namespace Garage1._0
         {
             List<Vehicle> matchVehicles = new List<Vehicle>();
 
-            foreach(Vehicle vehicle in G)
+            foreach (Vehicle vehicle in GarageArray)
             {
                 bool match = true;
 
-                foreach(var item in userVehicle)
+                foreach (var item in userVehicle)
                 {
                     if (vehicle != null)
                     {
@@ -189,6 +209,10 @@ namespace Garage1._0
             return matchVehicles;
         }
 
+
+        /// <summary>
+        /// Creates New Car object from User Data
+        /// </summary>
         private void NewCar()
         {
             Console.Clear();
@@ -202,6 +226,9 @@ namespace Garage1._0
             AddVehicle(car);
         }
 
+        /// <summary>
+        /// Creates New Submarine from User Data
+        /// </summary>
         private void NewSubmarine()
         {
             Console.Clear();
@@ -212,6 +239,9 @@ namespace Garage1._0
             AddVehicle(submarine);
         }
 
+        /// <summary>
+        /// Creates New Motorcycle from user data
+        /// </summary>
         private void NewMotorcycle()
         {
             Console.Clear();
@@ -222,6 +252,9 @@ namespace Garage1._0
             AddVehicle(motorcycle);
         }
 
+        /// <summary>
+        /// Create new Bus from user data
+        /// </summary>
         private void NewBus()
         {
             Console.Clear();
@@ -232,6 +265,9 @@ namespace Garage1._0
             AddVehicle(bus);
         }
 
+        /// <summary>
+        /// Create New Boat from user Data
+        /// </summary>
         private void NewBoat()
         {
             Console.Clear();
@@ -241,6 +277,9 @@ namespace Garage1._0
             AddVehicle(boat);
         }
 
+        /// <summary>
+        /// Create New Bike from user Data
+        /// </summary>
         private void NewBike()
         {
             Console.Clear();
@@ -261,6 +300,9 @@ namespace Garage1._0
             AddVehicle(bike);
         }
 
+        /// <summary>
+        /// Create new Airplane from user data
+        /// </summary>
         private void NewAirplane()
         {
             Console.Clear();
@@ -276,14 +318,19 @@ namespace Garage1._0
             Airplane airplane = new Airplane(seatsAir, engineNo, model);
             AddVehicle(airplane);
         }
+
+        /// <summary>
+        /// Displays Vehicles in Garage by type
+        /// </summary>
+        /// <param name="choice"></param>
         public void DisplayOneTypeVehicle(char choice)
         {
-            
+
 
             Console.WriteLine($"Here is the current inventory of {vehicleList[choice]} :"
-                            + "\n-----------------"    );
+                            + "\n-----------------");
 
-            foreach(Vehicle v in G)
+            foreach (Vehicle v in GarageArray)
             {
                 if (v.Name == vehicleList[choice])
                 {
@@ -294,7 +341,7 @@ namespace Garage1._0
             Console.WriteLine("-----------" +
                             $"\nTotal: {total}");
         }
-        
-        
+
+
     }
 }

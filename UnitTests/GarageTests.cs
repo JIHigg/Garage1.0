@@ -37,7 +37,7 @@ namespace Garage1._0.Tests
             G.AddVehicle(c1);
             G.AddVehicle(c2);
 
-            results = G.G[0].Equals(c1);
+            results = G.GarageArray[0].Equals(c1);
 
 
             Assert.IsTrue(results);

@@ -88,7 +88,7 @@ namespace Garage1._0
             n = n - 1;
 
             Console.Clear();
-            Console.WriteLine($"You have selected {G[n].ToString()}");
+            Console.WriteLine($"You have selected {GarageArray[n].ToString()}");
         }
 
         public void ListVehicle()
@@ -97,7 +97,7 @@ namespace Garage1._0
         }
         public void DisplayVehicleByType()
         {
-            Array.Sort<Vehicle>(G);
+            Array.Sort<Vehicle>(GarageArray);
             
             Console.Clear();
 
@@ -106,7 +106,7 @@ namespace Garage1._0
                               "\nType\t\t\tModel:" +
                               "\n-----\t\t\t-----");
 
-            foreach(var item in G)
+            foreach(var item in GarageArray)
             {
                 
                 Console.WriteLine(item.Name + " : " + item.Model);
