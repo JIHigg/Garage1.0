@@ -5,12 +5,7 @@ using System.Text;
 namespace Garage1._0
 {
     class GarageManager : GarageHandler, IUI
-    {
-
-        
-        
-
-        
+    {        
         internal void Menu()
         {
             bool open = true;
@@ -28,10 +23,18 @@ namespace Garage1._0
                             + "\n5. Dispay all Vehicles stored in all Garages."
                             + "\n6. Search for Vehicle."
                             + "\n0. Exit:");
-
-
-                char choice = Console.ReadLine()[0];//Fix to Throw Exceptions.
-
+                char choice;
+                while (true)
+                {
+                    string uChoice = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(uChoice))
+                        Console.WriteLine("Please enter a valid choice:");
+                    else
+                    {
+                         choice = uChoice[0];//Fix to Throw Exceptions.
+                         break;
+                    }
+                }
                 switch (choice)
                 {
                     case '1':
@@ -113,8 +116,9 @@ namespace Garage1._0
             }
             Console.WriteLine("------------------");
         }
-        public void DisplayVehicleOneType()
+        public void DisplayVehicleOneType()//TODO Fix Null exception
         {
+            char choice;
             Console.Clear();
             Console.WriteLine("Which type of vehicles would you like to see in the garage:" +
                             "\n1. Airplane" +
@@ -124,8 +128,18 @@ namespace Garage1._0
                             "\n5. Car" +
                             "\n6. Motorcycle" +
                             "\n7. Submarine");
-            char choice = Console.ReadLine()[0];
+            while (true)
+            {
+                string uChoice = Console.ReadLine();
 
+                if (String.IsNullOrEmpty(uChoice))
+                    Console.WriteLine("Please enter a valid selection:");
+                else
+                {
+                    choice = uChoice[0];
+                    break;
+                }
+            }
             DisplayOneTypeVehicle(choice);                          
         }
         public void VehicleSearch() 

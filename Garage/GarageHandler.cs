@@ -323,25 +323,24 @@ namespace Garage1._0
         /// Displays Vehicles in Garage by type
         /// </summary>
         /// <param name="choice"></param>
-        public void DisplayOneTypeVehicle(char choice)
+        public void DisplayOneTypeVehicle(char choice)//TODO Fix Null
         {
-
-
             Console.WriteLine($"Here is the current inventory of {vehicleList[choice]} :"
-                            + "\n-----------------");
+                            + "\n======================");
 
             foreach (Vehicle v in GarageArray)
             {
-                if (v.Name == vehicleList[choice])
+                if (v != null)
                 {
-                    Console.WriteLine(v);
-                    total++;
+                    if (v.Name == vehicleList[choice])
+                    {
+                        Console.WriteLine(v);
+                        total++;
+                    }
                 }
             }
-            Console.WriteLine("-----------" +
+            Console.WriteLine("=====================" +
                             $"\nTotal: {total}");
         }
-
-
     }
 }
