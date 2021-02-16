@@ -110,8 +110,7 @@ namespace Garage1._0
                               "\n-----\t\t\t-----");
 
             foreach(var item in GarageArray)
-            {
-                
+            {                
                 Console.WriteLine(item.Name + " : " + item.Model);
             }
             Console.WriteLine("------------------");
@@ -142,22 +141,54 @@ namespace Garage1._0
             }
             DisplayOneTypeVehicle(choice);                          
         }
+        /// <summary>
+        /// Allows user to search Garage For Vehicle.
+        /// </summary>
         public void VehicleSearch() 
         {
             Console.Clear();
             Console.WriteLine("Please select how you would like to search for a vehicle:"
                            + "\n1.Registration Number: "
                            + "\n2.Other options: ");
-            char choice = Console.ReadLine()[0];
-
-            if (choice == '1')
-                RegistrationSearch();
-            else if (choice == '2')
-                VehicleTraitSearch();
+            while (true)
+            {
+                char choice = Console.ReadLine()[0];
+                if (choice == '1')
+                { 
+                    RegistrationSearch();
+                    break;    
+                }
+                else if (choice == '2')
+                {
+                    VehicleTraitSearch();
+                    break;
+                }
+                else
+                    Console.WriteLine("Please make a valid choice");
+            }
         }
+        /// <summary>
+        /// Allows user to Remove Vehicle from Garage
+        /// </summary>
         public void RemoveVehicle() 
         {
-
+            Console.Clear();
+            DisplayGarage();
+            Console.WriteLine("Select vehicle to remove from garage:");
+            int uVehicle;
+            while (true)
+            {
+                string uInput = Console.ReadLine();
+                bool success = int.TryParse(uInput, out int uNum);
+                if (!success)
+                    Console.WriteLine("Please make a valid selection");
+                else
+                {
+                    uVehicle = uNum - 1;
+                    break; 
+                }
+            }
+            OutVehicle(GarageArray[uVehicle]);
         }
     }
 }

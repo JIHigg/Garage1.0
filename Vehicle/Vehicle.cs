@@ -74,7 +74,7 @@ namespace Garage1._0
      
             //Year
             Console.WriteLine("What year is the vehicle:");
-            while (!valid)
+            while (valid != true)
             {
                 bool success = int.TryParse(Console.ReadLine(), out int uYear);
                 if (!success)
@@ -89,7 +89,7 @@ namespace Garage1._0
             //Registration Number
             Console.WriteLine("Please enter the Registration Number of the Vehicle:");
             valid = false;
-            while (!valid)
+            while (valid != true)
             {
                 string uRegNum = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(uRegNum))
@@ -110,7 +110,7 @@ namespace Garage1._0
             //Model
             valid = false;
             Console.WriteLine("Please enter the Model of vehicle: ");
-            while(!valid)
+            while(valid != true)
             {
                 string uModel = Console.ReadLine();
                 if(string.IsNullOrWhiteSpace(uModel))
@@ -125,7 +125,7 @@ namespace Garage1._0
             //Wheels
             valid = false;
             Console.WriteLine("Please enter the number of wheels on the vehicle:");
-            while(!valid)
+            while(valid != true)
             {
                 bool success = int.TryParse(Console.ReadLine(), out int uWheels);
                 if (success)
@@ -140,7 +140,7 @@ namespace Garage1._0
             //Color
             valid = false;
             Console.WriteLine("Please enter the color of the vehicle: ");
-            while(!valid)
+            while(valid != true)
             {
                 string uColor = Console.ReadLine();
                 if(string.IsNullOrWhiteSpace(uColor))

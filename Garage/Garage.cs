@@ -55,11 +55,22 @@ namespace Garage1._0
                 Console.WriteLine("The Garage is full! Please create a new Garage!");
 
         }
-
+        /// <summary>
+        /// Remove Vehicle from Array
+        /// </summary>
+        /// <param name="vehicle"></param>
         public void OutVehicle(T vehicle)
         {
-
+            if (GarageArray.Contains(vehicle))
+            {
+                int vIndex = Array.IndexOf(GarageArray, vehicle);
+                Console.WriteLine($"You have removed {vehicle.Name} from the garage!");
+                GarageArray[vIndex] = null;
+            }
         }
+        /// <summary>
+        /// Displays contents of Garage
+        /// </summary>
         public void DisplayGarage()
         {
             Console.Clear();
@@ -68,8 +79,6 @@ namespace Garage1._0
                               "\n------------------");
             for (int n = 0; n < GarageArray.Length; n++)
                 if (GarageArray[n] != null) Console.WriteLine($"{n + 1}. " + GarageArray[n].Name + " : " + GarageArray[n].Model);
-
-
 
             Console.WriteLine("------------------");
         }
